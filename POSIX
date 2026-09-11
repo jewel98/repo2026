@@ -1,0 +1,14 @@
+POSIX (Portable Operating System Interface)
+
+A set of standard APIs, command-line tools, and shell behavior that operating systems should follow so that software written for one POSIX-compliant system can run on another without modification.
+
+You can have at least one of the followings:
+Dual Boot
+Least recommended. (https://ubuntu.com/, https://linuxmint.com/)
+VM
+Virtual Machine, such as Virtual Box (or VMWare) (https://www.virtualbox.org/)
+Windows Subsystem for Linux (https://learn.microsoft.com/en-us/windows/wsl/)
+Cygwin (https://cygwin.com/)
+Mingw-w64 (https://www.mingw-w64.org/)
+GCP (https://cloud.google.com/)
+
