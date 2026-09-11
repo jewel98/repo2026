@@ -1,0 +1,46 @@
+Strings: #include <string.h>
+char myCstring[] = “System Programming";
+printf("%s", myCstring);
+
+printf("%c", myCstring[0]);
+
+
+
+char myCstring[] = {'H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\0'};
+printf("%s", myCstring);
+
+
+
+// Create an integer variable 
+int myNum;
+
+// Ask the user to type a number
+printf("Type a number: \n");
+
+// Get and save the number
+scanf("%d", &myNum);
+
+// Output the number the user typed
+printf("Your number is: %d", myNum);
+
+
+scanf("%d %c", &myNum, &myChar);
+
+
+
+// Create a string
+char firstName[30];
+
+printf("Enter your first name: \n");
+
+scanf("%s", firstName);
+
+// Output the text
+printf("Hello %s", firstName);
+
+
+
+
+int myAge = 30;		// an int variable
+printf("%d", myAge);  		// Outputs the value of myAge (41)
+printf("%p", &myAge); 	// Outputs the memory address of myAge (0x7ffe5367e044)
