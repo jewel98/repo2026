@@ -1,11 +1,17 @@
-//The first program in C
-#include <stdio.h>
-
-int main() {
-  printf("I am now a C programmer!");
-  return 0;
-}
-
-//To compile and run any program:
-//To compile: gcc filename.c -o finename
-//To execute: ./filename
+passwd --to change password
+ls --to show list of files
+cd --to change directory
+mkdir --to create a directory
+touch filename --to create a file
+cat filename --to show the content
+cat > filename --to write
+nano filename --to edit/create
+^ --Ctrl
+M --Alt
+chmod 777 filename //permission ((read=4, write=2, execute=1)
+rm --to delete a file
+cd .. --to go back one level
+rmdir or rm -d --to remove empty directory
+rm -r --to delete non-empty directory
+cp --to copy a file
+scp --to copy to or from remote system from or to local system
