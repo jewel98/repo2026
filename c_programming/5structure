@@ -1,0 +1,53 @@
+struct Person {
+    char name[50];
+    int age;
+    float height;
+};
+
+struct Person p1;
+strcpy(p1.name, "John");
+p1.age = 30;
+p1.height = 6.1;
+
+struct Person p2 = {"Alice", 25, 5.5};
+
+
+
+
+struct Date {
+    int day;
+    int month;
+    int year;
+};
+
+struct Employee {
+    char name[50];
+    struct Date birthDate;
+    float salary;
+};
+
+
+
+
+struct Person {
+    char name[50];
+    int age;
+    float height;
+};
+
+int main() {
+    // Declare a variable of type struct Person
+    struct Person p1;
+    
+    // Initialize the structure members
+    strcpy(p1.name, "John");
+    p1.age = 30;
+    p1.height = 6.1;
+
+    // Print the structure members
+    printf("Name: %s\n", p1.name);
+    printf("Age: %d\n", p1.age);
+    printf("Height: %.1f\n", p1.height);
+
+    return 0;
+}
