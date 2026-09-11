@@ -15,3 +15,7 @@ rmdir or rm -d --to remove empty directory
 rm -r --to delete non-empty directory
 cp --to copy a file
 scp --to copy to or from remote system from or to local system
+
+
+On linux, you may already have gcc installed
+If not, sudo apt-get install gcc
