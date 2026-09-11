@@ -1,0 +1,70 @@
+FILE *fptr;
+fptr = fopen(filename, mode);
+
+w - Writes to a file
+a - Appends new data to a file
+r - Reads from a file
+
+
+FILE *fptr;
+
+// Create a file
+fptr = fopen("filename.txt", "w");
+
+// Close the file
+fclose(fptr);
+
+
+fptr = fopen("C:\directory\filename.txt", "w");
+
+
+////Writing in a File
+FILE *fptr;
+
+// Open a file in writing mode
+fptr = fopen("filename.txt", "w");
+
+// Write some text to the file
+fprintf(fptr, “The first line");
+
+// Close the file
+fclose(fptr);
+
+
+
+
+////Append Content To a File
+
+FILE *fptr;
+
+// Open a file in append mode
+fptr = fopen("filename.txt", "a");
+
+// Append some text to the file
+fprintf(fptr, "\nThis is the second line!");
+
+// Close the file
+fclose(fptr);
+
+
+
+
+////C Read Files
+FILE *fptr;
+
+// Open a file in read mode
+fptr = fopen("filename.txt", "r");
+
+// Store the content of the file
+char myString[100];
+
+// Read the content and store it inside myString
+fgets(myString, 100, fptr);
+
+// Print the file content
+printf("%s", myString);
+
+// Close the file
+fclose(fptr);
+
+
