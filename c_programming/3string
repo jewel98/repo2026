@@ -44,3 +44,28 @@ printf("Hello %s", firstName);
 int myAge = 30;		// an int variable
 printf("%d", myAge);  		// Outputs the value of myAge (41)
 printf("%p", &myAge); 	// Outputs the memory address of myAge (0x7ffe5367e044)
+
+//A network program stores received data in a character array called a buffer (This reserves space for 1,024 characters or bytes.):
+char buffer[1024]; 
+
+sizeof(buffer)   /* Total buffer capacity */
+strlen(buffer)   /* Current string length */
+
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+    char buffer[1024];
+
+    printf("Enter a message: ");
+    //Never use gets() because it cannot prevent buffer overflow.
+    if (fgets(buffer, sizeof(buffer), stdin) == NULL) {
+        return 1;
+    }
+
+    buffer[strcspn(buffer, "\n")] = '\0';
+
+    printf("Message: %s\n", buffer);
+    return 0;
+}
