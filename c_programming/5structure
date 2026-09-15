@@ -1,3 +1,5 @@
+//A structure combines several related variables.
+
 struct Person {
     char name[50];
     int age;
@@ -51,3 +53,30 @@ int main() {
 
     return 0;
 }
+
+
+#include <stdio.h>
+
+struct ServerConfig {
+    char ip_address[16];
+    unsigned short port;
+};
+
+int main(void) {
+    struct ServerConfig server = {
+        "127.0.0.1",
+        8080
+    };
+
+    printf("Server: %s:%u\n",
+           server.ip_address,
+           server.port);
+
+    return 0;
+}
+
+Access structure members using .: server.port
+If you have a pointer to a structure, use ->:
+struct ServerConfig *ptr = &server;
+printf("%u\n", ptr->port);
+Socket programming uses structures such as: struct sockaddr_in to store an IP address, address family and port number.
