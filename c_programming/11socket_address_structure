@@ -1,0 +1,35 @@
+#include <arpa/inet.h>
+#include <netinet/in.h>
+#include <string.h>
+
+struct sockaddr_in server_address = {0};
+
+server_address.sin_family = AF_INET;
+server_address.sin_port = htons(8080);
+
+inet_pton(
+    AF_INET,
+    "127.0.0.1",
+    &server_address.sin_addr
+);
+
+| Code                       | Meaning                                      |
+| -------------------------- | -------------------------------------------- |
+| `struct sockaddr_in`       | IPv4 address structure                       |
+| `AF_INET`                  | Use IPv4                                     |
+| `htons(8080)`              | Convert the port to network byte order       |
+| `inet_pton()`              | Convert a text IP address into binary format |
+| `&server_address.sin_addr` | Address where the result will be stored      |
+
+
+A connection call then looks like:
+connect(
+    socket_fd,
+    (struct sockaddr *)&server_address,
+    sizeof(server_address)
+);
+
+socket_fd: integer file descriptor
+&server_address: pointer to the address structure
+(struct sockaddr *): pointer-type conversion
+sizeof(server_address): structure size
