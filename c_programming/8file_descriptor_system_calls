@@ -1,0 +1,25 @@
+Linux represents an open file, pipe or socket using an integer called a file descriptor.
+int socket_fd;
+| Descriptor | Meaning         |
+| ---------: | --------------- |
+|        `0` | Standard input  |
+|        `1` | Standard output |
+|        `2` | Standard error  |
+
+
+The same general operations apply to files and sockets:
+read()
+write()
+close()
+
+Example:
+#include <unistd.h>
+
+char buffer[1024];
+
+ssize_t count = read(STDIN_FILENO, buffer, sizeof(buffer));
+
+if (count > 0) {
+    write(STDOUT_FILENO, buffer, (size_t)count);
+}
+
