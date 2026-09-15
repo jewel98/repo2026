@@ -1,0 +1,31 @@
+//A pointer stores the address of another variable.
+int port = 8080;
+int *pointer = &port;
+
+/*&port means “the address of port.”
+pointer stores that address.
+*pointer accesses the value at that address. */
+
+printf("%d\n", *pointer);   /* Prints 8080 */
+
+
+
+//Modifying a variable through a pointer
+#include <stdio.h>
+
+void set_port(int *port_pointer) {
+    *port_pointer = 8080;
+}
+
+int main(void) {
+    int port = 0;
+
+    set_port(&port);
+
+    printf("Port: %d\n", port);
+    return 0;
+}
+
+//Pointers appear throughout socket programming:
+bind(socket_fd, (struct sockaddr *)&address, sizeof(address));
+//Here, &address passes the address of a structure to bind().
