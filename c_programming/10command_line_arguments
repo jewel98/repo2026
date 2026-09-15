@@ -1,0 +1,25 @@
+A client may receive the server IP address and port through command-line arguments:
+
+#include <stdio.h>
+
+int main(int argc, char *argv[]) {
+    if (argc != 3) {
+        printf("Usage: %s <server-ip> <port>\n", argv[0]);
+        return 1;
+    }
+
+    printf("Server IP: %s\n", argv[1]);
+    printf("Port: %s\n", argv[2]);
+
+    return 0;
+}
+
+
+
+Run it with:
+./client 127.0.0.1 8080
+
+argc contains the number of arguments.
+argv contains the arguments as strings.
+argv[0] is the program name
+
