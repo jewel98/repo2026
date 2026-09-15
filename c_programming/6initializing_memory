@@ -1,0 +1,19 @@
+//A socket-address structure must be initialized before use.
+
+#include <string.h>
+
+struct Example {
+    int first;
+    int second;
+};
+
+int main(void) {
+    struct Example data;
+
+    memset(&data, 0, sizeof(data));
+
+    return 0;
+}
+
+A simpler modern initialization is:
+struct Example data = {0};
