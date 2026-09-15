@@ -57,3 +57,17 @@ printf("%.2f\n", myFloatNum); 	// Only show 2 digits
 printf("%.4f", myFloatNum);  		// Only show 4 digits
 
 
+
+int socket_fd = 3;
+char letter = 'A';
+unsigned short port = 8080;
+size_t buffer_size = 1024;
+ssize_t bytes_received = 25;
+
+| Type             | Socket-programming use                     |
+| ---------------- | ------------------------------------------ |
+| `int`            | Socket and file descriptors                |
+| `char`           | Individual characters and byte buffers     |
+| `unsigned short` | Port numbers                               |
+| `size_t`         | Buffer sizes                               |
+| `ssize_t`        | Number of bytes read, or `-1` for an error |
