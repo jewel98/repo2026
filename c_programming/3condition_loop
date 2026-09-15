@@ -1,0 +1,19 @@
+//condition
+if (socket_fd < 0) {
+    printf("Socket creation failed\n");
+}
+else {
+    printf("Socket created successfully\n");
+}
+
+//loop
+for (int i = 0; i < 10; i++) {
+    printf("%d\n", i);
+}
+
+//Continuously accepting clients
+//Socket servers commonly use an infinite loop because they continuously wait for connections.
+while (1) {
+    /* Wait for a client */
+}
+
