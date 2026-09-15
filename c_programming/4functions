@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int add(int first, int second) {
+    return first + second;
+}
+
+int main(void) {
+    int result = add(10, 20);
+    printf("Result: %d\n", result);
+    return 0;
+}
+
+
+Socket functions receive arguments and return results. Most return a negative value when an error occurs.
+
+socket()
+bind()
+listen()
+accept()
+connect()
+send()
+recv()
+close()
