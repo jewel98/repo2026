@@ -1,0 +1,19 @@
+Never assume that a system call succeeded.
+#include <stdio.h>
+#include <stdlib.h>
+
+int result = some_system_call();
+
+if (result == -1) {
+    perror("some_system_call");
+    return EXIT_FAILURE;
+}
+
+For a socket:
+int socket_fd = socket(AF_INET, SOCK_STREAM, 0);
+
+if (socket_fd == -1) {
+    perror("socket");    //perror() prints the reason for the most recent system-level error.
+    return EXIT_FAILURE;
+}
+
