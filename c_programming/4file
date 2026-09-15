@@ -68,3 +68,70 @@ printf("%s", myString);
 fclose(fptr);
 
 
+
+Example: Read two lines from a file
+Create an input.txt file:
+This is the first line.
+This is the second line.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    FILE *file;
+    char line[256];
+
+    file = fopen("input.txt", "r");
+
+    if (file == NULL) {
+        perror("Cannot open input.txt");
+        return EXIT_FAILURE;
+    }
+
+    for (int i = 1; i <= 2; i++) {
+        if (fgets(line, sizeof(line), file) != NULL) {
+            printf("Line %d: %s", i, line);
+        }
+        else {
+            printf("The file contains fewer than two lines.\n");
+            break;
+        }
+    }
+
+    fclose(file);
+    return EXIT_SUCCESS;
+}
+
+Example: Write two lines into a file
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    FILE *file;
+
+    file = fopen("output.txt", "w");
+
+    if (file == NULL) {
+        perror("Cannot open output.txt");
+        return EXIT_FAILURE;
+    }
+
+    fputs("This is the first line.\n", file);
+    fputs("This is the second line.\n", file);
+
+    fclose(file);
+
+    printf("Two lines were written to output.txt.\n");
+
+    return EXIT_SUCCESS;
+}
+
+Important file modes:
+
+"r": Open for reading.
+"w": Open for writing and erase existing content.
+"a": Open for writing and append to existing content.
+
+
+gcc -Wall -Wextra write_file.c -o write_file //with warning
+./write_file
