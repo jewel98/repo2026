@@ -1,0 +1,6 @@
+// Node structure for the singly linked list
+struct Node {
+    int data;
+    Node* next;
+    Node(int value) : data(value), next(nullptr) {}
+};
