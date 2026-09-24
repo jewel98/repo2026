@@ -159,5 +159,7 @@ Cumulative shifts: 7
 Therefore:
 
 Sorted: 2 4 10 32 87
+
 Comparisons: 9
+
 Shifts: 7
