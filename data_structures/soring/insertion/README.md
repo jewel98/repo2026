@@ -20,6 +20,7 @@ Count only element-to-key comparisons.
 
 A convenient structure is:
 
+
 while (j >= 0) {
     ++comparisons;
 
