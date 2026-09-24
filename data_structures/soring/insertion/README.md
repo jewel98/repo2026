@@ -63,7 +63,7 @@ Comparisons: count
 Shifts: count
 
 
-**Example 1**
+**Example**
 Input
 
 5
@@ -72,45 +72,19 @@ Input
 
 Output
 
+Pass 1: 4 32 87 10 2
+
+Pass 2: 4 32 87 10 2
+
+Pass 3: 4 10 32 87 2
+
+Pass 4: 2 4 10 32 87
+
 Sorted: 2 4 10 32 87
 
 Comparisons: 9
 
 Shifts: 7
-
-
-**Example 2: Already Sorted**
-
-Input
-
-5
-
-1 2 3 4 5
-
-Output
-
-Sorted: 1 2 3 4 5
-
-Comparisons: 4
-
-Shifts: 0
-
-
-**Example 3: Reverse Order**
-
-Input
-
-5
-
-5 4 3 2 1
-
-Output
-
-Sorted: 1 2 3 4 5
-
-Comparisons: 10
-
-Shifts: 10
 
 
 **Restrictions**
