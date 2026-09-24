@@ -1,4 +1,4 @@
-**Initial Vector**
+**Initial Array/Vector**
 
 [32, 4, 87, 10, 2]
 
