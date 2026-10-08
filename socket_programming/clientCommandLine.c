@@ -5,9 +5,16 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 
+#define BUFFER_SIZE 1024
+
 int main(int argc, char *argv[]) {
     if (argc != 3) {
         fprintf(stderr, "Usage: %s <server-IP> <port>\n", argv[0]);
+        fprintf(
+            stderr,
+            "Example: %s 192.168.10.223 5000\n",
+            argv[0]
+        );
         return 1;
     }
 
@@ -23,6 +30,7 @@ int main(int argc, char *argv[]) {
 
     int port = (int)port_value;
 
+    /* 1. Create TCP socket */
     int client_socket = socket(AF_INET, SOCK_STREAM, 0);
 
     if (client_socket < 0) {
@@ -30,22 +38,29 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
+    /* 2. Prepare server address */
     struct sockaddr_in server_address;
     memset(&server_address, 0, sizeof(server_address));
 
     server_address.sin_family = AF_INET;
     server_address.sin_port = htons(port);
 
-    if (inet_pton(AF_INET, server_ip,
-                  &server_address.sin_addr) != 1) {
+    if (inet_pton(
+            AF_INET,
+            server_ip,
+            &server_address.sin_addr
+        ) != 1) {
         fprintf(stderr, "Invalid IPv4 address: %s\n", server_ip);
         close(client_socket);
         return 1;
     }
 
-    if (connect(client_socket,
-                (struct sockaddr *)&server_address,
-                sizeof(server_address)) < 0) {
+    /* 3. Connect to server */
+    if (connect(
+            client_socket,
+            (struct sockaddr *)&server_address,
+            sizeof(server_address)
+        ) < 0) {
         perror("connect");
         close(client_socket);
         return 1;
@@ -53,6 +68,53 @@ int main(int argc, char *argv[]) {
 
     printf("Connected to %s:%d\n", server_ip, port);
 
+    /* 4. Read a message from the keyboard */
+    char message[BUFFER_SIZE];
+
+    printf("Enter a message: ");
+
+    if (fgets(message, sizeof(message), stdin) == NULL) {
+        fprintf(stderr, "Failed to read message.\n");
+        close(client_socket);
+        return 1;
+    }
+
+    /* Remove the newline added by fgets() */
+    message[strcspn(message, "\n")] = '\0';
+
+    /* 5. Send the message */
+    if (send(
+            client_socket,
+            message,
+            strlen(message),
+            0
+        ) < 0) {
+        perror("send");
+        close(client_socket);
+        return 1;
+    }
+
+    /* 6. Receive the server's response */
+    char buffer[BUFFER_SIZE];
+
+    ssize_t bytes_received = recv(
+        client_socket,
+        buffer,
+        sizeof(buffer) - 1,
+        0
+    );
+
+    if (bytes_received < 0) {
+        perror("recv");
+    } else if (bytes_received == 0) {
+        printf("Server closed the connection.\n");
+    } else {
+        buffer[bytes_received] = '\0';
+        printf("Server response: %s\n", buffer);
+    }
+
+    /* 7. Close the socket */
     close(client_socket);
+
     return 0;
 }
