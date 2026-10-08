@@ -1,17 +1,24 @@
+**Compile**
+
 gcc server.c -o server
 
 gcc client.c -o client
+
+**Run**
 
 ./server
 
 ./client
 
 
+**Run with IP and Port**
+
 ./server 5000
 
 ./client 192.168.10.10 5000
 
 
+...
 
 gcc -Wall -Wextra server.c -o server
 
