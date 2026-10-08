@@ -131,11 +131,18 @@ Popped: 10
 Stack underflow
 
 **Complexity**
+
 **Operation**	**Time complexity**
+
 Push()	O(1)
+
 Pop()	O(1)
+
 Peek()	O(1)
+
 IsEmpty()	O(1)
+
 IsFull()	O(1)
+
 Display()	O(n)
 
