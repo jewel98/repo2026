@@ -2,6 +2,10 @@ gcc server.c -o server
 
 gcc client.c -o client
 
+./server
+
+./client
+
 
 ./server 5000
 
