@@ -33,15 +33,15 @@ public:
 
 **Supported Commands**
 
-**Command**	**Description**
+**Command** -	**Description**
 
-PUSH value	Adds value to the top
+PUSH value -	Adds value to the top
 
-POP	Removes and prints the top value
+POP	- Removes and prints the top value
 
-PEEK	Prints the top value without removing it
+PEEK	- Prints the top value without removing it
 
-DISPLAY	Prints the stack from top to bottom
+DISPLAY	- Prints the stack from top to bottom
 
 
 **Output Rules**
@@ -132,17 +132,17 @@ Stack underflow
 
 **Complexity**
 
-**Operation**	**Time complexity**
+**Operation**	- **Time complexity**
 
-Push()	O(1)
+Push()	- O(1)
 
-Pop()	O(1)
+Pop()	- O(1)
 
-Peek()	O(1)
+Peek()	- O(1)
 
-IsEmpty()	O(1)
+IsEmpty()	- O(1)
 
-IsFull()	O(1)
+IsFull()	- O(1)
 
-Display()	O(n)
+Display()	- O(n)
 
