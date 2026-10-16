@@ -5,8 +5,11 @@ Implement a queue that stores integers using a circular array. A queue follows F
 The array has a capacity of 5. Use these variables:
 
 Variable -	Purpose -	Initial value
+
 front	-Index of the first queued element when nonempty-	0
+
 rear	-Index of the last queued element when nonempty-	-1
+
 count	-Number of elements currently in the queue-	0
 
 
