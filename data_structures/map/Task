@@ -1,4 +1,5 @@
-Lab: Implement Map ADT Operations
+Lab: Implement Map ADT Operations 
+
 A map associates unique keys with values. In this lab, the map stores:
 
 Key: integer
@@ -11,15 +12,19 @@ Remove(key)
 Get(key)
 Contains(key)
 GetLength()
+
 Program behavior
+
 The first input is the number of operations. Each remaining line contains one operation.
 
-Input command	Behavior
-insert key value	Insert a new pair or update an existing key
-remove key	Remove the pair, if it exists
-get key	Print its value or null
-contains key	Print true or false
-length	Print the number of pairs
+Input command -	Behavior
+
+insert key value	- Insert a new pair or update an existing key
+remove key	- Remove the pair, if it exists
+get key	- Print its value or null
+contains key	- Print true or false
+length	- Print the number of pairs
+
 insert and remove do not produce output.
 
 Example input
@@ -35,6 +40,7 @@ get 6
 remove 10
 contains 10
 length
+
 Expected output
 apple
 null
@@ -42,6 +48,7 @@ true
 orange
 false
 2
+
 Notice that:
 
 insert 6 orange
