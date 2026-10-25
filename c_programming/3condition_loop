@@ -1,19 +1,114 @@
 //condition
+
+//Syntax:
+if (condition) {
+    // Statements executed if condition is true
+}
+
+
+
+#include <stdio.h>
+
+int main() {
+    int score = 85;
+
+    if (score >= 60) {
+        printf("You passed the exam.\n");
+    }
+
+    return 0;
+}
+
+
+
+#include <stdio.h>
+
+int main() {
+    int score;
+
+    printf("Enter your score: ");
+    scanf("%d", &score);
+
+    if (score >= 60) {
+        printf("Pass\n");
+    } else {
+        printf("Fail\n");
+    }
+
+    return 0;
+}
+
+
+
+#include <stdio.h>
+
+int main() {
+    int score = 85;
+
+    if (score >= 90) {
+        printf("Grade: A\n");
+    } else if (score >= 80) {
+        printf("Grade: B\n");
+    } else if (score >= 70) {
+        printf("Grade: C\n");
+    } else if (score >= 60) {
+        printf("Grade: D\n");
+    } else {
+        printf("Grade: F\n");
+    }
+
+    return 0;
+}
+
+
+
+//Comparison and logical operators
+
+| Operator | Meaning | Example |
+
+| == | Equal to | a == b |
+| != | Not equal to | a != b |
+| > | Greater than | a > b |
+| < | Less than | a < b |
+| >= | Greater than or equal to | a >= b |
+| <= | Less than or equal to | a <= b |
+| && | Logical AND | a > 0 && a < 100 |
+| || | Logical OR | a < 0 || a > 100 |
+| ! | Logical NOT | !(a == b) |
+
+Important: = is assignment, whereas == is comparison.
+
+
+
+#include <stdio.h>
+
+int main() {
+    int choice = 2;
+
+    switch (choice) {
+        case 1:
+            printf("Send Message\n");
+            break;
+        case 2:
+            printf("Read Message\n");
+            break;
+        case 3:
+            printf("Exit\n");
+            break;
+        default:
+            printf("Invalid choice\n");
+    }
+
+    return 0;
+}
+
+
+//Example
+
 if (socket_fd < 0) {
     printf("Socket creation failed\n");
 }
 else {
     printf("Socket created successfully\n");
-}
-
-//loop
-for (int i = 0; i < 10; i++) {
-    printf("%d\n", i);
-}
-
-//Continuously accepting clients
-//Socket servers commonly use an infinite loop because they continuously wait for connections.
-while (1) {
-    /* Wait for a client */
 }
 
