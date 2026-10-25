@@ -69,3 +69,63 @@ int main(void) {
     printf("Message: %s\n", buffer);
     return 0;
 }
+
+
+//Example: Compare two strings
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char name1[] = "Alice";
+    char name2[] = "Bob";
+    char name3[] = "Alice";
+
+    if (strcmp(name1, name2) == 0) {
+        printf("name1 and name2 are equal.\n");
+    } else {
+        printf("name1 and name2 are different.\n");
+    }
+
+    if (strcmp(name1, name3) == 0) {
+        printf("name1 and name3 are equal.\n");
+    }
+
+    return 0;
+}
+
+
+if (name1 == name2)  // Incorrect for comparing strings
+if (strcmp(name1, name2) == 0) //Correct
+
+Copying Strings Using strcpy()
+In C, we cannot assign a new string to an existing character array using the assignment operator =.
+
+Instead, we can use strcpy().
+
+strcpy(destination, source);
+
+
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char source[] = "Hello";
+    char destination[20];
+
+    strcpy(destination, source);
+
+    printf("Source: %s\n", source);
+    printf("Destination: %s\n", destination);
+
+    return 0;
+}
+
+Other useful functions are available in <string.h>.
+strlen()	Returns string length (excluding '\0')	strlen("Hello") returns 5
+strcmp()	Compares two strings	strcmp("A", "A") returns 0
+strcpy()	Copies a string	strcpy(dest, src)
+strcat()	Appends one string to another	strcat(dest, src)
+strcspn()	Finds the length before any character in a given set	strcspn(name, "\n")
+
+
