@@ -1,6 +1,9 @@
 Problem Description
+
 Write a C program that reads the exam scores of 10 students, stores them in an array, and analyzes their performance.
+
 Program Requirements
+
 1. Declare an integer array named scores that can store 10 exam scores.
 2. Use a for loop to read 10 scores from the user using scanf().
 3. Use another loop to process the scores and calculate:
