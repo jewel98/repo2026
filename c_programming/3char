@@ -1,0 +1,54 @@
+// Character Data Type (char)
+
+
+#include <stdio.h>
+
+int main() {
+    char grade = 'A';
+    char initial = 'J';
+    char symbol = '#';
+
+    printf("Grade: %c\n", grade);
+    printf("Initial: %c\n", initial);
+    printf("Symbol: %c\n", symbol);
+
+    return 0;
+}
+
+
+A string is a sequence of characters. Unlike some programming languages, C does not have a built-in string data type.
+
+Instead, C represents strings using arrays of characters terminated by a special null character, '\0'.
+
+
+
+#include <stdio.h>
+
+int main() {
+    char name[20] = "Alice";
+
+    printf("Name: %s\n", name);
+
+    return 0;
+}
+
+The two declarations below are equivalent:
+
+char name[6] = "Alice";
+
+char name2[6] = {'A', 'l', 'i', 'c', 'e', '\0'};
+
+
+#include <stdio.h>
+
+int main() {
+    char name[20];
+
+    printf("Enter your name: ");
+    scanf("%19s", name);
+
+    printf("Hello, %s!\n", name);
+
+    return 0;
+}
+
