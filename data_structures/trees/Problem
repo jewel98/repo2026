@@ -1,0 +1,30 @@
+Complete a binary search tree program by implementing:
+- Preorder traversal: Root → Left → Right
+- Postorder traversal: Left → Right → Root
+The program already provides:
+- Node creation
+- BST insertion
+- Search
+- Inorder traversal
+- Tree memory cleanup
+Tree used in the lab
+The values are inserted in this order:
+50, 30, 70, 20, 40, 60, 80
+
+The resulting BST is:
+          50
+        /    \
+      30      70
+     /  \    /  \
+   20   40  60   80
+
+Expected output
+Inorder:   20 30 40 50 60 70 80
+Preorder:  50 30 20 40 70 60 80
+Postorder: 20 40 30 60 80 70 50
+
+Contains 60: true
+Contains 25: false
+
+Starter code
+Students should complete the TODO functions. Do not change main().
