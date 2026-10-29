@@ -1,0 +1,71 @@
+C Programming Lab: Recursive Palindrome Checker
+
+Problem Description
+
+A palindrome is a string that reads the same forward and backward.
+
+Examples:
+
+level → Palindrome
+
+madam → Palindrome
+
+radar → Palindrome
+
+hello → Not a Palindrome
+
+computer → Not a Palindrome
+
+Write a C program that determines whether a given string is a palindrome using recursion.
+
+
+Program Requirements
+
+Read a string from the user and store it in a character array.
+
+Create a recursive function (you may use the following prototype; however, you are free to create your own also):
+
+int isPalindrome(char str[], int start, int end);
+
+The function should:
+
+Return 1 if the string is a palindrome.
+
+Return 0 if the string is not a palindrome.
+
+Compare the characters at positions start and end.
+
+If the characters match, recursively check the remaining characters.
+
+Stop recursion when the entire string has been checked or a mismatch is found.
+
+In main(), call the recursive function and display the result.
+
+Sample Execution 1
+
+Enter a string: madam
+Palindrome
+
+Sample Execution 2
+
+Enter a string: hello
+Not a Palindrome
+
+Sample Execution 3
+
+Enter a string: radar
+Palindrome
+
+
+Restrictions
+
+You must use recursion to check whether the string is a palindrome.
+
+Do not use loops to perform the palindrome comparison.
+
+Do not use built-in string reversal functions.
+
+You may use strlen() to determine the length of the string.
+
+Assume the input contains only lowercase English letters without spaces and is at most 99 characters long.
+
