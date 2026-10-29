@@ -1,4 +1,217 @@
-//A structure combines several related variables.
+//Structures in C (struct)
+
+What is a structure?
+A structure is a user-defined data type that groups related variables under one name.
+
+Unlike an array, which stores elements of the same type, a structure can store elements of different types.
+
+For example, a student has an ID, name, and GPA.
+
+Without structures:
+int studentID = 101;
+char studentName[30] = "Alice";
+float studentGPA = 3.75;
+
+
+Using a structure, we can group these related values together.
+
+Defining a structure
+Syntax:
+struct StructureName {
+    dataType member1;
+    dataType member2;
+};
+
+
+Example: Student structure
+
+#include <stdio.h>
+
+struct Student {
+    int id;
+    char name[30];
+    float gpa;
+};
+
+int main() {
+    struct Student student1 = {101, "Alice", 3.75f};
+
+    printf("ID: %d\n", student1.id);
+    printf("Name: %s\n", student1.name);
+    printf("GPA: %.2f\n", student1.gpa);
+
+    return 0;
+}
+
+Output:
+ID: 101
+Name: Alice
+GPA: 3.75
+
+The dot operator (.) accesses individual structure members.
+For example:
+student1.id
+student1.name
+student1.gpa
+
+
+Example: Assigning values to structure members
+
+#include <stdio.h>
+#include <string.h>
+
+struct Student {
+    int id;
+    char name[30];
+    float gpa;
+};
+
+int main() {
+    struct Student student1;
+
+    student1.id = 102;
+    strcpy(student1.name, "Bob");
+    student1.gpa = 3.90f;
+
+    printf("%d %s %.2f\n",
+           student1.id,
+           student1.name,
+           student1.gpa);
+
+    return 0;
+}
+
+Output:
+102 Bob 3.90
+
+
+Notice that we used strcpy() to assign a new string to student1.name. We cannot assign a string to an existing character array using =.
+
+
+Example: Array of structures
+We can use an array to store multiple structures of the same type.
+
+#include <stdio.h>
+
+struct Student {
+    int id;
+    char name[30];
+    float gpa;
+};
+
+int main() {
+    struct Student students[3] = {
+        {101, "Alice", 3.75f},
+        {102, "Bob", 3.90f},
+        {103, "Carol", 3.50f}
+    };
+
+    for (int i = 0; i < 3; i++) {
+        printf("%d %s %.2f\n",
+               students[i].id,
+               students[i].name,
+               students[i].gpa);
+    }
+
+    return 0;
+}
+
+Output:
+101 Alice 3.75
+102 Bob 3.90
+103 Carol 3.50
+
+
+Combining Functions and Structures
+Example: Simple message processing
+This example introduces the basic structure of a messaging application.
+
+Each message contains:
+- Sender
+- Recipient
+- Message content
+We will create a structure to store this information and a function to display it.
+
+#include <stdio.h>
+
+struct Message {
+    char sender[30];
+    char recipient[30];
+    char text[100];
+};
+
+void displayMessage(struct Message msg) {
+    printf("From: %s\n", msg.sender);
+    printf("To: %s\n", msg.recipient);
+    printf("Message: %s\n", msg.text);
+}
+
+int main() {
+    struct Message msg1 = {
+        "Alice",
+        "Bob",
+        "Hello Bob, how are you?"
+    };
+
+    displayMessage(msg1);
+
+    return 0;
+}
+
+Output:
+From: Alice
+To: Bob
+Message: Hello Bob, how are you?
+
+Example: A small messaging system using arrays, loops, conditions, functions, and structures
+The program stores three messages and displays only those addressed to Bob.
+
+#include <stdio.h>
+#include <string.h>
+
+struct Message {
+    char sender[30];
+    char recipient[30];
+    char text[100];
+};
+
+void showInbox(struct Message messages[], int count,
+               char username[]) {
+
+    for (int i = 0; i < count; i++) {
+        if (strcmp(messages[i].recipient, username) == 0) {
+            printf("From: %s\n", messages[i].sender);
+            printf("Message: %s\n\n", messages[i].text);
+        }
+    }
+}
+
+int main() {
+    struct Message messages[3] = {
+        {"Alice", "Bob", "Hello Bob!"},
+        {"Carol", "Alice", "Are you available?"},
+        {"David", "Bob", "Meeting at 3 PM."}
+    };
+
+    printf("Bob's Inbox:\n\n");
+
+    showInbox(messages, 3, "Bob");
+
+    return 0;
+}
+
+
+
+Output:
+Bob's Inbox:
+
+From: Alice
+Message: Hello Bob!
+
+From: David
+Message: Meeting at 3 PM.
+
+More Example:
 
 struct Person {
     char name[50];
