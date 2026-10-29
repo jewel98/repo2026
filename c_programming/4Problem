@@ -1,5 +1,7 @@
 C Programming Lab: Recursive Palindrome Checker
 
+Topics covered in this problem: Recursion, Functions, Character Arrays, and Conditional Statements
+
 Problem Description
 
 A palindrome is a string that reads the same forward and backward.
