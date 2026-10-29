@@ -1,0 +1,74 @@
+1. A recursive function is a function that calls itself to solve a smaller version of the same problem.
+
+Every recursive solution should have two essential components:
+1. Base case: The condition that stops recursion.
+2. Recursive case: The function calls itself with a smaller or simpler problem.
+
+2. Example: Factorial using recursion
+Problem: Write a recursive function to calculate the factorial of a nonnegative integer.
+
+Mathematically:
+n! = n*(n-1)!
+
+Base case:
+0!=1
+
+#include <stdio.h>
+
+int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    }
+
+    return n * factorial(n - 1);
+}
+
+int main() {
+    int n = 5;
+
+    printf("Factorial = %d\n", factorial(n));
+
+    return 0;
+}
+
+Output:
+Factorial = 120
+
+
+3. Example: Sum of digits using recursion
+This is an interesting problem because it combines recursion, integer division, and modulus.
+
+Problem: Given a nonnegative integer, calculate the sum of its digits recursively.
+
+For example:
+
+Input: 5472
+
+Output: 18 (5 + 4 + 7 + 2)
+
+#include <stdio.h>
+
+int sumDigits(int n) {
+    if (n < 10) {
+        return n;
+    }
+
+    return (n % 10) + sumDigits(n / 10);
+}
+
+int main() {
+    int number = 5472;
+
+    printf("Sum = %d\n", sumDigits(number));
+
+    return 0;
+}
+
+The recursive calculation:
+sumDigits(5472)
+= 2 + sumDigits(547)
+= 2 + 7 + sumDigits(54)
+= 2 + 7 + 4 + sumDigits(5)
+= 2 + 7 + 4 + 5
+= 18
+
