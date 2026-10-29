@@ -1,3 +1,9 @@
+//Server requires only the port.
+//Client accepts either an IPv4 address or a hostname.
+//./server 5000
+//./client localhost 5000 or ./client 127.0.0.1 5000
+//./client 192.168.10.223 5000 or ./client server-name 5000
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
