@@ -1,3 +1,58 @@
+Functions: Dividing a program into smaller, reusable parts.
+
+What is a function?
+A function is a named block of code designed to perform a specific task.
+
+Functions help with:
+- Reusability: The same code can be executed multiple times.
+- Modularity: A large program can be divided into smaller components.
+- Readability: Programs become easier to understand.
+- Maintenance: Code can be modified and tested more easily.
+We have already used functions such as printf(), scanf(), fopen(). Now we will learn to create our own functions.
+
+General syntax of a function
+returnType functionName(parameters) {
+    // Function body
+    return value;
+}
+
+A function has four major components:
+Component	Description
+Return type	Type of value returned, such as int, float, or void
+Function name	Name used to call the function
+Parameters	Input values received by the function
+Function body	Statements executed by the function
+
+
+Example 1: Function without parameters or return value
+
+#include <stdio.h>
+
+void greet() {
+    printf("Welcome to CMPS 547!\n");
+}
+
+int main() {
+    greet();
+    greet();
+
+    return 0;
+}
+
+
+Output:
+Welcome to CMPS 547!
+Welcome to CMPS 547!
+
+Explanation:
+- void means that the function does not return a value.
+- greet() defines a function with no parameters.
+- Calling greet() executes its statements.
+- The function can be called multiple times.
+
+
+Example 2: Function with parameters and a return value
+
 #include <stdio.h>
 
 int add(int first, int second) {
@@ -11,7 +66,72 @@ int main(void) {
 }
 
 
-Socket functions receive arguments and return results. Most return a negative value when an error occurs.
+Example 3: Functions with conditions
+
+Write a function that determines whether a student passed an exam.
+
+#include <stdio.h>
+
+void checkResult(int score) {
+    if (score >= 60) {
+        printf("Passed\n");
+    } else {
+        printf("Failed\n");
+    }
+}
+
+int main() {
+    int score;
+
+    printf("Enter exam score: ");
+    scanf("%d", &score);
+
+    checkResult(score);
+
+    return 0;
+}
+
+Example output:
+Enter exam score: 85
+Passed
+
+
+Example 4: Passing an array to a function
+Write a function that calculates the total of five student scores.
+
+#include <stdio.h>
+
+int calculateTotal(int scores[], int size) {
+    int total = 0;
+
+    for (int i = 0; i < size; i++) {
+        total += scores[i];
+    }
+
+    return total;
+}
+
+int main() {
+    int scores[5] = {80, 70, 90, 85, 75};
+
+    int total = calculateTotal(scores, 5);
+
+    printf("Total = %d\n", total);
+    printf("Average = %.2f\n", total / 5.0);
+
+    return 0;
+}
+
+
+
+Output:
+Total = 400
+Average = 80.00
+
+** An important distinction: Ordinary variables such as int are passed by value, so changes to their parameters do not affect the original variables. An array parameter provides access to the original array elements, so modifying those elements inside a function can affect the caller's array.
+
+
+## Socket functions receive arguments and return results. Most return a negative value when an error occurs.
 
 socket()
 bind()
