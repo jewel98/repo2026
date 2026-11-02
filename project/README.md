@@ -76,8 +76,7 @@ For clients on different computers, replace `127.0.0.1` with the reachable serve
 
 1. `server.c` — TCP server and game logic.
 2. `client.c` — TCP client and terminal interface.
-3. `README.pdf` — build/run instructions and short design explanation.
-4. Screenshots showing both clients connected and a completed match.
+3. `README.pdf` — build/run instructions and short design explanation (including screenshots showing both clients connected and a completed match).
 
 ## Grading (100 points)
 
