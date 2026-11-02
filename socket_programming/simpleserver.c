@@ -6,15 +6,15 @@
 #include <arpa/inet.h>
 
 int main() {
-    int clientSocket;
+    int serverSocket, clientSocket;
     struct sockaddr_in serverAddress;
     char buffer[1024];
     int bytesReceived;
 
     // Step 1: Create socket
-    clientSocket = socket(AF_INET, SOCK_STREAM, 0);
+    serverSocket = socket(AF_INET, SOCK_STREAM, 0);
 
-    if (clientSocket < 0) {
+    if (serverSocket < 0) {
         perror("Socket creation failed");
         return 1;
     }
@@ -24,37 +24,54 @@ int main() {
 
     serverAddress.sin_family = AF_INET;
     serverAddress.sin_port = htons(5000);
+    serverAddress.sin_addr.s_addr = INADDR_ANY;
 
-    inet_pton(AF_INET, "127.0.0.1",
-              &serverAddress.sin_addr);
-
-    // Step 3: Connect to server
-    if (connect(clientSocket,
-                (struct sockaddr*)&serverAddress,
-                sizeof(serverAddress)) < 0) {
-        perror("Connection failed");
-        close(clientSocket);
+    // Step 3: Bind socket
+    if (bind(serverSocket,
+             (struct sockaddr*)&serverAddress,
+             sizeof(serverAddress)) < 0) {
+        perror("Bind failed");
+        close(serverSocket);
         return 1;
     }
 
-    printf("Connected to server!\n");
+    // Step 4: Listen for connections
+    if (listen(serverSocket, 5) < 0) {
+        perror("Listen failed");
+        close(serverSocket);
+        return 1;
+    }
 
-    // Step 4: Send message
-    char message[] = "Hello from client!";
-    send(clientSocket, message,
-         strlen(message), 0);
+    printf("Server waiting on port 5000...\n");
 
-    // Step 5: Receive response
+    // Step 5: Accept a client
+    clientSocket = accept(serverSocket, NULL, NULL);
+
+    if (clientSocket < 0) {
+        perror("Accept failed");
+        close(serverSocket);
+        return 1;
+    }
+
+    printf("Client connected!\n");
+
+    // Step 6: Receive message
     bytesReceived = recv(clientSocket, buffer,
                          sizeof(buffer) - 1, 0);
 
     if (bytesReceived > 0) {
         buffer[bytesReceived] = '\0';
-        printf("Server says: %s\n", buffer);
+        printf("Client says: %s\n", buffer);
+
+        // Step 7: Send response
+        char response[] = "Hello from server!";
+        send(clientSocket, response,
+             strlen(response), 0);
     }
 
-    // Step 6: Close socket
+    // Step 8: Close sockets
     close(clientSocket);
+    close(serverSocket);
 
     return 0;
 }
