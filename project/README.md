@@ -1,4 +1,4 @@
-# CMPS 547 – Programming Project: Networked Tic-Tac-Toe
+# Programming Project: Networked Tic-Tac-Toe
 
 **Language:** C  
 **Topics:** TCP sockets, two-dimensional arrays, conditions, loops, functions, and client–server applications.
