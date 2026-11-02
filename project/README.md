@@ -1,4 +1,4 @@
-# Networked Tic-Tac-Toe (Instructor Solution)
+# Networked Tic-Tac-Toe 
 
 This solution implements a **single two-player match** of console-based Tic-Tac-Toe over TCP sockets. It has no graphical dependencies and requires no multithreading. The server owns the board and applies all game rules.
 
