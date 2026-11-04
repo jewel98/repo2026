@@ -82,6 +82,29 @@ int main(void) {
     return 0;
 }
 
+
+6.Pointers and arrays
+In C, pointers and arrays are closely related.
+
+#include <stdio.h>
+
+int main() {
+    int numbers[3] = {10, 20, 30};
+    int *p = numbers;
+
+    printf("%d\n", *p);
+    printf("%d\n", *(p + 1));
+    printf("%d\n", *(p + 2));
+
+    return 0;
+}
+
+Output:
+10
+20
+30
+
+
 //Pointers appear throughout socket programming:
 bind(socket_fd, (struct sockaddr *)&address, sizeof(address));
 //Here, &address passes the address of a structure to bind().
