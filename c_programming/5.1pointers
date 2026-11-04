@@ -1,4 +1,18 @@
-//A pointer stores the address of another variable.
+1. What is a pointer?
+A pointer is a variable that stores the memory address of another variable.
+
+For example:
+int x = 10;
+int *p = &x;
+
+Here:
+- x is an integer variable containing 10.
+- &x gives the memory address of x.
+- p stores the address of x.
+- *p accesses the value stored at that address.
+
+
+//2.A pointer stores the address of another variable.
 int port = 8080;
 int *pointer = &port;
 
@@ -9,8 +23,50 @@ pointer stores that address.
 printf("%d\n", *pointer);   /* Prints 8080 */
 
 
+3. Example: Basic pointer operations
 
-//Modifying a variable through a pointer
+#include <stdio.h>
+
+int main() {
+    int x = 10;
+    int *p = &x;
+
+    printf("Value of x: %d\n", x);
+    printf("Address of x: %p\n", (void *)&x);
+    printf("Value of p: %p\n", (void *)p);
+    printf("Value pointed to by p: %d\n", *p);
+
+    return 0;
+}
+
+Example output:
+Value of x: 10
+Address of x: 0x7ffd1234
+Value of p: 0x7ffd1234
+Value pointed to by p: 10
+
+
+5. Modifying a variable using a pointer
+
+#include <stdio.h>
+
+int main() {
+    int x = 10;
+    int *p = &x;
+
+    *p = 25;
+
+    printf("x = %d\n", x);
+
+    return 0;
+}
+
+Output:
+x = 25
+
+Explanation: *p = 25 changes the value of x because p points to x.
+
+//5. Modifying a variable through a pointer
 #include <stdio.h>
 
 void set_port(int *port_pointer) {
