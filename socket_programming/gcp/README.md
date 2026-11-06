@@ -90,7 +90,7 @@ Under Network tags, add: socket-server
 
 Save the VM. (Stop VM when not using to save credits. IP will change.)
 
-4. Run a program using port 5000 (or any), then run from laptop: 
+3. Run a program using port 5000 (or any), then run from laptop: 
 	Test-NetConnection 34.10.30.217 -Port 5000
 
 Alternate: Run a second GCP Virtual Machine as the Client
