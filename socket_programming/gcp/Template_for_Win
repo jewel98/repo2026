@@ -1,0 +1,33 @@
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
+
+#include <stdio.h>
+#include <winsock2.h>  // The Windows socket library
+#include <ws2tcpip.h>  // Needed for IP string conversion functions
+
+// Crucial: This tells Visual Studio's linker to attach the Windows networking engine
+#pragma comment(lib, "ws2_32.lib")
+
+int main() {
+    // 1. Initialize Winsock (Mandatory for Windows)
+    WSADATA wsaData;
+    if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
+        printf("Winsock initialization failed.\n");
+        return 1;
+    }
+
+    // 2. Create Socket (Use standard SOCKET type on Windows)
+    SOCKET client_socket = socket(AF_INET, SOCK_STREAM, 0);
+    if (client_socket == INVALID_SOCKET) {
+        printf("Socket creation failed.\n");
+        WSACleanup();
+        return 1;
+    }
+
+    // ... Your standard socket configuration (struct sockaddr_in) goes here ...
+
+    // 3. Clean up before exiting
+    closesocket(client_socket); // Windows uses closesocket() instead of close()
+    WSACleanup();               // Shuts down the Windows network stack
+    return 0;
+}
