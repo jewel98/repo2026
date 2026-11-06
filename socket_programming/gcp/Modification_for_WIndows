@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+
+// Tell Visual Studio to include the Windows networking library files
+#pragma comment(lib, "ws2_32.lib")
+
+// Tell Visual Studio not to complain about older network functions
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
+#define _CRT_SECURE_NO_WARNINGS
+
+
+int main() {
+    // 1. Windows specific: Start up the network stack
+    WSADATA wsaData;
+    if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
+        printf("Winsock initialization failed.\n");
+        return 1;
+    }
+
+    // ----------------------------------------------------
+    // ORIGINAL SOCKET CODE GOES HERE
+    // (Creating socket, setting up struct sockaddr_in, connect(), etc.)
+    // ----------------------------------------------------
+
+
+    // 2. Windows specific: Clean up before exiting
+    // Note: Use closesocket(server_socket) instead of close() on Windows
+    WSACleanup();
+    return 0;
+}
+
+
+//Replace for Windows
+Visual Studio Translation Quick-Sheet:
+If existing code uses any of these Linux functions, change them to their Windows equivalents to clear any remaining red squiggly lines:
+Change close(socket_fd); → closesocket(socket_fd);
+Change read(socket_fd, buf, size); → recv(socket_fd, buf, size, 0);
+Change write(socket_fd, buf, size); → send(socket_fd, buf, size, 0);
+
+
+
